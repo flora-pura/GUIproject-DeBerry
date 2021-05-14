@@ -1,7 +1,9 @@
 from tkinter import *
+import random
 
 top = Tk()
 playlist = []
+myRolls = []
 
 
 def printList():
@@ -56,10 +58,34 @@ def week1():
     B3.grid(column = 1, row = 3)
 
     
-    B4 = Button(text = "Main Menu", bg = "purple", command = mainMenu)
-    B4.grid(column = 1, row = 4)
+    Bclear = Button(text = "Main Menu", bg = "purple", command = mainMenu)
+    Bclear.grid(column = 1, row = 4)
 
 def week2():
+    def rollDice():
+        #access the entry data
+        rollTimes = E2W2.get()
+        dieType = E1W2.get()
+        
+        #clear the window
+        clearWindow()
+        
+        #perform the dice roll calculations
+        for x in range(0, int(rollTimes)):
+            myRolls.append(random.randint(1, int(dieType)))
+            
+        #display the results with two labels and a button that goes to main menu
+        L1RD = Label (top, text= "Here's your rolls!")
+        L1RD.grid(column= 0, row=1)
+        
+        L2RD = Label (top, text = myRolls)
+        L2RD.grid(column= 0, row=2)
+        
+        B1RD = Button (text= "Main Menu", bg = "yellow", command = mainMenu)
+        B1RD.grid(column= 0, row= 3)
+        
+
+        
     clearWindow()
 
     L1W2 = Label(top, text= "Dice Roller App")
@@ -77,10 +103,10 @@ def week2():
     E2W2 = Entry(top, bd = 5)
     E2W2.grid(column=3, row= 3)
 
-    B1W2 = Button(text="roll 'em", bg = "yellow")
+    B1W2 = Button(text="roll 'em", bg = "yellow", command = rollDice)
     B1W2.grid(column=2, row= 4)
     #dont forget .grid()
-    
+
 
 
     
