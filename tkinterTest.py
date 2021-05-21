@@ -4,6 +4,7 @@ import random
 top = Tk()
 playlist = []
 myRolls = []
+shoppingListYAY = []
 
 
 def printList():
@@ -29,8 +30,11 @@ def mainMenu():
     B2Main = Button(text = "week 2", bg = "#E1FFFC", command = week2)
     B2Main.grid(column = 0, row = 3)
     
-    B3Main = Button(text = "week 3", bg = "#E1FFFC", )
+    B3Main = Button(text = "week 3", bg = "#E1FFFC", command = week3)
     B3Main.grid(column = 0, row = 4)
+
+def shoppingList():
+    print(shoppingList)
 
 def week1():
 
@@ -40,7 +44,7 @@ def week1():
 
     clearWindow()
     #this is a lable widget
-    L1 = Label(top, text="Hello, world!")
+    L1 = Label(top, text="Add your songs!")
     L1.grid(column = 0, row = 1)
 
     #this is a text entry widget
@@ -108,6 +112,31 @@ def week2():
     #dont forget .grid()
 
 
+def week3 ():
+    def shoppingList():
+        shoppingListYAY.append(E1W3.get())
+        E1W3.delete(0, END)
+
+    clearWindow()
+    #this is a lable widget
+    L1W3 = Label(top, text="What's on your shopping list?")
+    L1W3.grid(column = 0, row = 1)
+
+    #this is a text entry widget
+    E1W3 = Entry(top, bd = 5)
+    E1W3.grid(column = 0, row = 2)
+
+    #this is a button widget
+    B1W3 = Button(text=" + ", bg = "#82FFBF", command = shoppingList)
+    B1W3.grid(column = 1, row = 2)
+
+    B2W3 = Button(text = "Print List", bg = "#82FFF4", command = printGroceryList)
+    B2W3.grid(column = 0, row = 3)
+    
+    BclearW3 = Button(text = "Main Menu", bg = "#82DBFF", command = mainMenu)
+    BclearW3.grid(column = 1, row = 4)
+
+    
 
     
 
